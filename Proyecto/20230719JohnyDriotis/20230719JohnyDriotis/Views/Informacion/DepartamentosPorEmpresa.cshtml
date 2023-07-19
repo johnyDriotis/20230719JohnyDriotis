@@ -1,0 +1,36 @@
+﻿@model List<DepartamentosPorEmpresa>
+
+@using _20230719JohnyDriotis.Models.ModelsOut
+
+@if (Model is not null && Model.Count > 0)
+{
+    <label class="text-success">Departamentos de empresa: @Model[0].Nombre</label>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">CodDepartamento</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">NumeroEmpleados</th>
+                <th scope="col">NivelOrganizacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dep in Model)
+            {
+                <tr>
+                    <th scope="row">@dep.IdDepartamento</th>
+                    <th scope="row">@dep.Nombre</th>
+                    <td>@dep.NumeroEmpleados</td>
+                    <td>@dep.NivelOrganizacion</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <label class="text-danger">No se encontraton departamentos en la empresa seleccionada</label>
+}
+
+<a class="btn btn-primary" asp-controller="Informacion" asp-action="Index">Home</a>

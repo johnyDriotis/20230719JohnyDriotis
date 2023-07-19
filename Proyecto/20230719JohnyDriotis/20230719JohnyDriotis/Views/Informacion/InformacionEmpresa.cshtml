@@ -1,0 +1,27 @@
+﻿@model Empresa
+
+@using _20230719JohnyDriotis.Models
+
+<label class="text-success">Informacion de empresa: @Model.Nombre</label>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">CodEmpresa</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">RazonSocial</th>
+            <th scope="col">FechaRegistro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.IdEmpresa</td>
+            <td>@Model.Nombre</td>
+            <td>@Model.RazonSocial</td>
+            <td>@Model.FechaRegistro.ToString("dd/MM/yyyy")</td>
+        </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-primary" asp-controller="Informacion" asp-action="Index">Home</a>

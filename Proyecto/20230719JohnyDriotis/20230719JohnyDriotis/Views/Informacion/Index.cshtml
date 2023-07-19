@@ -1,0 +1,39 @@
+﻿@model List<AllDepartamentos>
+
+@using _20230719JohnyDriotis.Models.ModelsOut
+
+<label class="text-success">Lista de todos los departamentos</label>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            @*<th scope="col">CodDepartamento</th>*@
+            <th scope="col">Nombres</th>
+            <th scope="col">NumeroEmpleados</th>
+            <th scope="col">NivelOrganizacion</th>
+            @*<th scope="col">CodEmpresa</th>*@
+            @*<th scope="col">Empresa</th>*@
+            <th scope="col">Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dep in Model)
+        {
+            <tr>
+                @*<th scope="row">@dep.CodDepartamento</th>*@
+                <td>@dep.Departamento</td>
+                <td>@dep.NumeroEmpleados</td>
+                <td>@dep.NivelOrganizacion</td>
+                @*<td>@dep.IdEmpresa</td>*@
+                @*<td>@dep.Empresa</td>*@
+                <td>
+                    <a class="btn btn-primary" asp-controller="Informacion" asp-action="GetInfEmpresa" asp-route-idEmpresa="@dep.IdEmpresa">GetInfEmpresa</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Informacion" asp-action="GetDepartamentosEmp" asp-route-idEmpresaCons="@dep.IdEmpresa">GetDeparPorEmpresa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
